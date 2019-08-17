@@ -59,8 +59,7 @@ div.navbar1 > a  {
   padding-right: 20px;
   margin-left: 1px;
   margin-right: 1px;
-  background-color: lightgray;
-
+  color: black;
 }
 a:visited {
   color: blue;
