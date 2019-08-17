@@ -18,7 +18,7 @@ body {
   opacity: .96;
   padding: 45px;
   border-radius: 7px;
-  z-index: 3;
+  z-index: -1;
   padding-top: 100px;
 }
 
@@ -30,7 +30,7 @@ div.navbar {
   margin: -20px;
   padding-top: 20px;
   padding-left: 20px;
-  z-index: 10000000000;
+  z-index: 100;
   display: inline-block;
 }
 
@@ -40,11 +40,13 @@ div.navbar1 {
   padding: 0;
   overflow: hidden;
   height: 37px;
+  z-index: 10;
 }
 div.navbar1 a {
   color: gray;
   font-style: normal;
   text-decoration: none;
+  z-index: 10;
 }
 a {
   font-style: normal;
@@ -54,7 +56,7 @@ a {
 div.navbar1 > a  {
   display: inline;
   float: left;
-  padding: 11px;
+  padding: 9px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: 1px;
