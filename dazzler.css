@@ -82,23 +82,6 @@ div.navbar1 > a:hover {
   margin-top: -50px;
   margin-right: 100px;
 }
-.search1 {
-  padding-right: 50px;
-  margin-left: 45%;
-  margin-top: -69px;
-  overflow: hidden;
-}
-.search1 input[type=text] {
-  width: 30%;
-  padding: 12px 20px;
-  margin: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.searchit {
-  border: 0;
-  height: 30px;
-  width: 30px;
-}
 
 footer {
   text-align: center;
