@@ -39,6 +39,7 @@ div.navbar1 {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  height: 37px;
 }
 div.navbar1 a {
   color: gray;
@@ -53,7 +54,11 @@ a {
 div.navbar1 > a  {
   display: inline;
   float: left;
-  padding: 28px;
+  padding: 11px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
   background-color: lightgray;
 
 }
