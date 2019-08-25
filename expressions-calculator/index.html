@@ -9,12 +9,15 @@
 			<style>
 				.calcInput {
 					padding: 10px;
-					border-radius: 5px;
-					box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+					border-radius: 7px;
+					border-style: groove;
+					border-color: black;
+					border-width: 2px;
 					height: 5%;
-					width: 90%;
+					width: 100%;
 					margin: 10px;
 					margin-left: 0px;
+					font-size: 1vw;
 				}
 				.calcButton {
 					padding: 10px;
@@ -22,7 +25,13 @@
 					border-radius: 5px;
 					border-style: groove;
 					background-color: white;
+					border-color: black;
+					border-width: 2px;
 					margin-left: 0px;
+					width: 20%;
+					margin: auto;
+					display: block;
+					font-size: 1vw;
 				}
 			</style>
 	</head>
@@ -274,7 +283,15 @@
 						$(".calcInput").on("change", (event) => {
 							input=$(".calcInput").val();
 							console.log("Detected change: " + input);
-						})
+						});
+						$(".calcInput").on("keydown", (event) => {
+							input=$(".calcInput").val();
+							if (event.keyCode == 13) {
+								$(".outputText2").show();
+								$(".outputText").text(ShuntingYardAlgorithm.prototype.calculateExpression(input));
+								$(".outputText").show();
+							}
+						});
 						$(".calcButton").on("click",(event) => {
 							console.log("clicked");
 							//alert(ShuntingYardAlgorithm.prototype.calculateExpression(input));
