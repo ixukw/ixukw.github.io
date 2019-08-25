@@ -1,0 +1,278 @@
+<html lang="en">
+	<head>
+		<title>ixukw</title>
+		<link href="dazzler.css" rel="stylesheet">
+		<script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="navbar">
+			<img src="mainpageimg.png" id="atdplogo" height="37" width="212" alt="ixukw">
+			<div class="navbar1">
+				<a href="">Info</a>
+				<a href="expressions-calculator">Calculator Project</a>
+				<a href="webCrawler">File-Crawler</a>
+				<!--<a href="">ATDP</a>
+				<a href=""></a>
+				<a href=""></a>
+				<a href=""></a>-->
+			</div>
+		</div>
+		<div class="mainpage">
+			<h1>Expression Calculator</h1>
+			<hr>
+			<br>
+			<div class="calc">
+				<script>
+					$(document).ready(() => {
+						var ShuntingYardAlgorithm = (function () {
+						function ShuntingYardAlgorithm() {
+						}
+						ShuntingYardAlgorithm.prototype.calculateExpression = function (expression) {
+								return this.evaluate(this.shuntingYard(this.lexer(expression)));
+						};
+						ShuntingYardAlgorithm.prototype.lexer = function (input) {
+								var output = ([]);
+								var operators = "+-*/()^";
+								var i = 0;
+								while ((i < input.length)) {
+										{
+												var temp = input.charAt(i);
+												if (operators.indexOf(temp) === -1 || ((function (o1, o2) { if (o1 && o1.equals) {
+														return o1.equals(o2);
+												}
+												else {
+														return o1 === o2;
+												} })(temp, "-") && operators.indexOf(input.charAt(i - 1)) !== -1 && !(function (o1, o2) { if (o1 && o1.equals) {
+														return o1.equals(o2);
+												}
+												else {
+														return o1 === o2;
+												} })(input.charAt(i - 1), ")"))) {
+														i++;
+														while ((i < input.length && operators.indexOf(input.charAt(i)) === -1)) {
+																{
+																		temp += input.charAt(i);
+																		i++;
+																}
+														}
+														;
+												}
+												else {
+														i++;
+												}
+												/* add */ (output.push(temp) > 0);
+										}
+								}
+								;
+								return output.slice(0);
+						};
+						ShuntingYardAlgorithm.prototype.shuntingYard = function (input) {
+								var s = ([]);
+								var output = ([]);
+								var operators = "^*/+-";
+								for (var i = 0; i < input.length; i++) {
+										{
+												if (operators.indexOf(input[i]) === -1 && !(function (o1, o2) { if (o1 && o1.equals) {
+														return o1.equals(o2);
+												}
+												else {
+														return o1 === o2;
+												} })(input[i], "(") && !(function (o1, o2) { if (o1 && o1.equals) {
+														return o1.equals(o2);
+												}
+												else {
+														return o1 === o2;
+												} })(input[i], ")")) {
+														/* add */ (output.push(input[i]) > 0);
+												}
+												else if (operators.indexOf(input[i]) !== -1) {
+														while (((function (s) { return s[s.length - 1]; })(s) != null && this.checkPrecLvl(this.precLvl(/* peek */ (function (s) { return s[s.length - 1]; })(s)), this.precLvl(input[i])))) {
+																{
+																		/* add */ (output.push(/* pop */ s.pop()) > 0);
+																}
+														}
+														;
+														/* push */ (s.push(input[i]) > 0);
+												}
+												else if ((function (o1, o2) { if (o1 && o1.equals) {
+														return o1.equals(o2);
+												}
+												else {
+														return o1 === o2;
+												} })(input[i], "(")) {
+														/* push */ (s.push(input[i]) > 0);
+												}
+												else if ((function (o1, o2) { if (o1 && o1.equals) {
+														return o1.equals(o2);
+												}
+												else {
+														return o1 === o2;
+												} })(input[i], ")")) {
+														while (((function (s) { return s[s.length - 1]; })(s) != null && !(function (o1, o2) { if (o1 && o1.equals) {
+																return o1.equals(o2);
+														}
+														else {
+																return o1 === o2;
+														} })(/* peek */ (function (s) { return s[s.length - 1]; })(s), "("))) {
+																{
+																		/* add */ (output.push(/* pop */ s.pop()) > 0);
+																}
+														}
+														;
+														if ((function (s) { return s[s.length - 1]; })(s) != null && (function (o1, o2) { if (o1 && o1.equals) {
+																return o1.equals(o2);
+														}
+														else {
+																return o1 === o2;
+														} })(/* peek */ (function (s) { return s[s.length - 1]; })(s), "(")) {
+																/* pop */ s.pop();
+														}
+												}
+										}
+										;
+								}
+								while (((function (s) { return s[s.length - 1]; })(s) != null)) {
+										{
+												/* add */ (output.push(/* pop */ s.pop()) > 0);
+										}
+								}
+								;
+								return output.slice(0);
+						};
+						/*private*/ ShuntingYardAlgorithm.prototype.precLvl = function (a) {
+								if ((function (o1, o2) { if (o1 && o1.equals) {
+										return o1.equals(o2);
+								}
+								else {
+										return o1 === o2;
+								} })(a, "+") || (function (o1, o2) { if (o1 && o1.equals) {
+										return o1.equals(o2);
+								}
+								else {
+										return o1 === o2;
+								} })(a, "-")) {
+										return 1;
+								}
+								else if ((function (o1, o2) { if (o1 && o1.equals) {
+										return o1.equals(o2);
+								}
+								else {
+										return o1 === o2;
+								} })(a, "*") || (function (o1, o2) { if (o1 && o1.equals) {
+										return o1.equals(o2);
+								}
+								else {
+										return o1 === o2;
+								} })(a, "/")) {
+										return 2;
+								}
+								else if ((function (o1, o2) { if (o1 && o1.equals) {
+										return o1.equals(o2);
+								}
+								else {
+										return o1 === o2;
+								} })(a, "^")) {
+										return 3;
+								}
+								return 0;
+						};
+						/*private*/ ShuntingYardAlgorithm.prototype.checkPrecLvl = function (a, b) {
+								if (a === 3 && b === 3) {
+										return false;
+								}
+								else if (a >= b) {
+										return true;
+								}
+								return false;
+						};
+						ShuntingYardAlgorithm.prototype.evaluate = function (input) {
+								var operators = "+-/^*";
+								var s = ([]);
+								for (var i = 0; i < input.length; i++) {
+										{
+												if (operators.indexOf(input[i]) !== -1) {
+														var second = parseFloat(/* pop */ s.pop());
+														var first = parseFloat(/* pop */ s.pop());
+														var value = -2147483648;
+														if ((function (o1, o2) { if (o1 && o1.equals) {
+																return o1.equals(o2);
+														}
+														else {
+																return o1 === o2;
+														} })(input[i], "+")) {
+																value = first + second;
+														}
+														else if ((function (o1, o2) { if (o1 && o1.equals) {
+																return o1.equals(o2);
+														}
+														else {
+																return o1 === o2;
+														} })(input[i], "-")) {
+																value = first - second;
+														}
+														else if ((function (o1, o2) { if (o1 && o1.equals) {
+																return o1.equals(o2);
+														}
+														else {
+																return o1 === o2;
+														} })(input[i], "*")) {
+																value = first * second;
+														}
+														else if ((function (o1, o2) { if (o1 && o1.equals) {
+																return o1.equals(o2);
+														}
+														else {
+																return o1 === o2;
+														} })(input[i], "/")) {
+																value = first / second;
+														}
+														else if ((function (o1, o2) { if (o1 && o1.equals) {
+																return o1.equals(o2);
+														}
+														else {
+																return o1 === o2;
+														} })(input[i], "^")) {
+																value = Math.pow(first, second);
+														}
+														/* push */ (s.push(/* toString */ ('' + (value))) > 0);
+												}
+												else {
+														/* push */ (s.push(input[i]) > 0);
+												}
+										}
+										;
+								}
+								return parseFloat(/* pop */ s.pop());
+						};
+						return ShuntingYardAlgorithm;
+						}());
+						ShuntingYardAlgorithm["__class"] = "ShuntingYardAlgorithm";
+						var input="";
+						$(".calcInput").on("change", (event) => {
+							input=$(".calcInput").val();
+							console.log("Detected change: " + input);
+						})
+						$(".calcButton").on("click",(event) => {
+							console.log("clicked");
+							alert(ShuntingYardAlgorithm.prototype.calculateExpression(input));
+						});
+					});
+				</script>
+				<input type='text' class="calcInput"/>
+				<button type="button" class="calcButton">Calculate</button>
+			</div>
+			<i>External Links:<br></i>
+			<p><a href="https://www.openprocessing.org/user/157740">OpenProcessing</a></p>
+			<p><a href="https://github.com/ixukw">GitHub Profile</a></p>
+			<p><a href="https://atdpsites.berkeley.edu/ixu">ATDPSites Page</a></p>
+			<p><a href=""></a></p>
+			<footer>
+				<p class="rreserve">Copyright 2019 Inan Xu</p>
+				<p class="rreserve">Hosted using GitHub Pages</p>
+			</footer>
+		</div>
+	</body>
+</html>
