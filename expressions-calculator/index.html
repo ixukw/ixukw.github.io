@@ -6,6 +6,25 @@
       src="https://code.jquery.com/jquery-3.3.1.js"
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"></script>
+			<style>
+				.calcInput {
+					padding: 10px;
+					border-radius: 5px;
+					box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+					height: 5%;
+					width: 70%;
+					margin: 10px;
+					margin-left: 0px;
+				}
+				.calcButton {
+					padding: 10px;
+					margin: 10px;
+					border-radius: 5px;
+					border-style: groove;
+					background-color: white;
+					margin-left: 0px;
+				}
+			</style>
 	</head>
 	<body>
 		<div class="navbar">
@@ -251,18 +270,26 @@
 						}());
 						ShuntingYardAlgorithm["__class"] = "ShuntingYardAlgorithm";
 						var input="";
+						$(".outputText2").hide();
+						$(".outputText").hide();
 						$(".calcInput").on("change", (event) => {
 							input=$(".calcInput").val();
 							console.log("Detected change: " + input);
 						})
 						$(".calcButton").on("click",(event) => {
 							console.log("clicked");
-							alert(ShuntingYardAlgorithm.prototype.calculateExpression(input));
+							//alert(ShuntingYardAlgorithm.prototype.calculateExpression(input));
+							$(".outputText2").show();
+							$(".outputText").text(ShuntingYardAlgorithm.prototype.calculateExpression(input));
+							$(".outputText").show();
 						});
 					});
 				</script>
-				<input type='text' class="calcInput"/>
+				<p><i>Input any numeric expression. Supported operands: +, -, *, /, ^, (, )<br>This calcluates the expression, taking into consideration order of operations, using the shunting yard algorithm, which converts the input to Reverse Polish Notation & then parses it into a number.</i></p>
+				<input type='text' class="calcInput"/><br>
 				<button type="button" class="calcButton">Calculate</button>
+				<h3 class="outputText2">Output:</h3>
+				<p class="outputText"></p>
 			</div>
 			<i>External Links:<br></i>
 			<p><a href="https://www.openprocessing.org/user/157740">OpenProcessing</a></p>
