@@ -282,7 +282,6 @@
 						$(".outputText").hide();
 						$(".calcInput").on("change", (event) => {
 							input=$(".calcInput").val();
-							console.log("Detected change: " + input);
 						});
 						$(".calcInput").on("keydown", (event) => {
 							input=$(".calcInput").val();
@@ -293,7 +292,6 @@
 							}
 						});
 						$(".calcButton").on("click",(event) => {
-							console.log("clicked");
 							//alert(ShuntingYardAlgorithm.prototype.calculateExpression(input));
 							$(".outputText2").show();
 							$(".outputText").text(ShuntingYardAlgorithm.prototype.calculateExpression(input));
@@ -316,7 +314,7 @@
 			<p><a href=""></a></p>
 			<footer>
 				<p class="rreserve">Copyright 2019 Inan Xu</p>
-				<p class="rreserve">Hosted using GitHub Pages</p>
+				<p class="rreserve">Who needs a Copyright symbol anyway?</p>
 			</footer>
 		</div>
 	</body>

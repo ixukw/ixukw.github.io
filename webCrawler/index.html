@@ -1,8 +1,24 @@
-<?php session_start(); $_SESSION['active']=true; ?>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>ixukw</title>
 		<link href="dazzler.css" rel="stylesheet">
+		<script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(() => {
+				$(".uButton").on("click", (event) => {
+					console.log($(".fileStuff")[0].files);
+					console.log($(".fileStuff"));
+				});
+				$(".fileStuff").on("change", (event) => {
+					console.log($(".fileStuff")[0].files);
+					
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div class="navbar">
@@ -18,17 +34,12 @@
 			</div>
 		</div>
 		<div class="mainpage">
-			<h1>File Crawler</h1>
+			<h1>FileCrawler</h1>
 			<hr>
-			<p>The original intent of this project was to create an algorithm which scans <i>n</i> files for links to other files, and then construct a graph of these connections. I've created a web version of this original project.</p>
 			<div class="webContent">
-				<form class="uF" action="upload.php" method="post" enctype="multipart/form-data">
-					<input type="file" name="fileUpload">
-					<input type="submit" value="Upload File" name="submit">
-				</form>
+				<input class="fileStuff" type="file" multiple>
+				<button class="uButton">Manually Detect Files</button>
 			</div>
-			<p>The original .java files can be found here:</p>
-			<hr>
 			<i>External Links:<br></i>
 			<p><a href="https://www.openprocessing.org/user/157740">OpenProcessing</a></p>
 			<p><a href="https://github.com/ixukw">GitHub Profile</a></p>
@@ -36,7 +47,7 @@
 			<p><a href=""></a></p>
 			<footer>
 				<p class="rreserve">Copyright 2019 Inan Xu</p>
-				<p class="rreserve">Hosted using GitHub Pages</p>
+				<p class="rreserve">Who needs Copyright symbols?</p>
 			</footer>
 		</div>
 	</body>
