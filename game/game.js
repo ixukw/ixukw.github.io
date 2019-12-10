@@ -1,3 +1,3 @@
-$(document).ready(function() {
-  $(".board").append("d");
+$(document).ready(()=>{
+  $(".board").append("<h1>tsetset</h1>");
 });
