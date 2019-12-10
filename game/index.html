@@ -1,8 +1,58 @@
 <html>
   <head>
-    <script type="text/javscript" src="game.js"></script>
     <script text="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script type="text/javscript" src="game.js"></script>-->
+    <style>
+      .box {
+        border: solid 1px black;
+        margin: 0px;
+        padding: 30px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(()=>{
+        var bHeight=10;
+        var bLength=10;
+        for (var i=0;i<bHeight;i++) {
+          $(".board").append("<tr>");
+          for (var j=0;j<bLength;j++) {
+            $(".board").append("<td class=\"box\" id=\"" + i + j +"\"></td>");
+          }
+          $(".board").append('<tr>');
+        }
+        // [posX, posY, orientation]
+        var playerInfo = [Math.floor(Math.random()*bLength), Math.floor(Math.random()*bHeight), Math.floor(Math.random()*4)];
+        var playerTag="#" + playerInfo[0] + playerInfo[1];
+        $(playerTag).attr("style", "background-color: blue;");
+        $(playerTag).attr("active", "false");
+        var surroundings = [playerInfo[0]+(playerInfo[1]-1), playerInfo[0]+(playerInfo[1]+1), (playerInfo[0]-1)+playerInfo[1], (playerInfo[0]+1)+playerInfo[1]];
+        $(playerTag).on("click", () => {
+          if ($(playerTag).attr("active")=="false") {
+            for (var i=0; i<surroundings.length; i++) {
+              $("#" + surroundings[i]).attr("style", "background-c")
+            }
+            $("#" + playerInfo[0]+(playerInfo[1]-1)).attr("style", "background-color:lightblue;");
+            $("#" + playerInfo[0]+(playerInfo[1]+1)).attr("style", "background-color:lightblue;");
+            $("#" + (playerInfo[0]-1)+playerInfo[1]).attr("style", "background-color:lightblue;");
+            $("#" + (playerInfo[0]+1)+playerInfo[1]).attr("style", "background-color:lightblue;");
+            $(playerTag).attr("active", "true");
+          } else {
+            $(playerTag).attr("active", "false");
+            $("#" + playerInfo[0]+(playerInfo[1]-1)).removeAttr("style");
+            $("#" + playerInfo[0]+(playerInfo[1]+1)).removeAttr("style");
+            $("#" + (playerInfo[0]-1)+playerInfo[1]).removeAttr("style");
+            $("#" + (playerInfo[0]+1)+playerInfo[1]).removeAttr("style");
+          }
+
+        });
+      });
+    </script>
   </head>
-  <div class="board">
+  <div class="game">
+    <table class="board">
+    </table>
   </div>
 </html>
