@@ -1,0 +1,9 @@
+<div class="toolbar">
+    <a routerLink="" routerLinkActive="active"><img width="50" alt="ixukw" src=""/></a>
+
+    <div class="items" *ngFor="let item of toolbarItems">
+        <a [routerLink]="item.link"> {{ item.name }} </a>
+    </div>
+    <div class="spacer"></div>
+
+</div>
