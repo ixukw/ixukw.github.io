@@ -10,6 +10,7 @@ import { ProjectsComponent } from './projects/projects.component';
 
 import { RouterModule } from '@angular/router';
 import { CommonModule } from "@angular/common";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [

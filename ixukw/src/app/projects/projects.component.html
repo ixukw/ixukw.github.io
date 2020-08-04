@@ -4,7 +4,7 @@
         <hr>
         <p>A compilation of random side projects over the years. Major Projects are showcased elsewhere.</p>
         <div class="project" *ngFor="let project of projectItems">
-            <h3 class="projHead"><a> {{ project.name }} </a></h3>
+            <h3 class="projHead"><a href="{{ project.link }}"> {{ project.name }} </a></h3>
             <p *ngIf="project.description"> {{ project.description }} </p>
         </div>
     </div>

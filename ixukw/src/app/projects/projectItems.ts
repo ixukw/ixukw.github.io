@@ -5,13 +5,13 @@ export const projectItems = [
     link: ''
   },
   {
-    name: 'LMYA Timecards Work',
-    description: 'Part-Time Employed work to develop a mobile application for LMYA which replaces a paper timecard system. Closed Source.',
+    name: 'LMYA Timecards App',
+    description: 'Part-Time Employed work to develop a mobile application for LMYA which replaces a paper timecard system.',
     link: ''
   },
   {
     name: 'Basic Expression Calculator',
-    description: 'A calculator written in Java, then transcribed to JavaScript. I programmed this using pseudocode from Wikipedia.',
+    description: 'A calculator written in Java and transcribed to Javascript.',
     link: ''
   },
   {
@@ -22,7 +22,7 @@ export const projectItems = [
   {
     name: 'ATDPSites Website',
     description: 'A website created with poorly written PHP, SQL, and HTML/CSS for ATDP Web classes in 2017 and 2018.',
-    link: ''
+    link: 'https://atdpsites.berkeley.edu/ixu'
   },
   {
     name: 'Processing Experiments',
