@@ -5,8 +5,21 @@
   <title>ixukw</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="styles.538f7051be57732776b3.css"></head>
+<link rel="stylesheet" href="styles.08be856f573426a47c29.css"></head>
 <body>
+  <script>
+    (function () {
+      // Retrieve the URL the user was trying to access when receiving the 404.
+      var redirect = sessionStorage.redirect;
+      // Remove the URL from sessionStorage.
+      delete sessionStorage.redirect;
+      // Check if we actually need to redirect.
+      if (redirect && redirect != location.href) {
+        // We need to redirect to the URL the user was trying to access.
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
   <app-root></app-root>
-<script src="runtime-es2015.1eba213af0b233498d9d.js" type="module"></script><script src="runtime-es5.1eba213af0b233498d9d.js" nomodule defer></script><script src="polyfills-es5.9e286f6d9247438cbb02.js" nomodule defer></script><script src="polyfills-es2015.690002c25ea8557bb4b0.js" type="module"></script><script src="main-es2015.58c70becaff9267d8b16.js" type="module"></script><script src="main-es5.58c70becaff9267d8b16.js" nomodule defer></script></body>
+<script src="runtime-es2015.1eba213af0b233498d9d.js" type="module"></script><script src="runtime-es5.1eba213af0b233498d9d.js" nomodule defer></script><script src="polyfills-es5.6eaa42a2498a3d4ade68.js" nomodule defer></script><script src="polyfills-es2015.8949387c8891f5dd85d2.js" type="module"></script><script src="main-es2015.ae265e6314284c11dcb1.js" type="module"></script><script src="main-es5.ae265e6314284c11dcb1.js" nomodule defer></script></body>
 </html>
