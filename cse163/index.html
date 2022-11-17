@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<style>
+
+.counties {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+    pointer-events: all;
+}
+.counties-no-boundary {
+  fill: none;
+  stroke: none;
+    pointer-events: all;
+}
+.states {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+.tooltip {
+    background-color: lightblue;
+    position: absolute;
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 5px;
+}
+</style>
+<body>
+    <h1>South Carolina Population Density</h1>
+    <svg width="960" height="600"></svg>
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script>
+
+    var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height");
+
+    var rateById = d3.map();
+
+    var quantize = d3.scaleQuantize()
+        .domain([0, 0.15])
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+    var color = d3.scaleThreshold()
+        .domain([1, 10, 50, 200, 500, 1000, 2000, 4000])
+        .range(d3.schemeOrRd[9]);
+
+    var color2 = d3.scaleThreshold()
+        .domain([1, 10, 50, 200, 500, 1000, 2000, 4000])
+        .range(d3.schemeGnBu[9])
+
+    var projection = d3.geoAlbersUsa()
+        .scale(7280)
+        .translate([-width, -height/2+100]);
+
+    var path = d3.geoPath()
+        .projection(projection);
+
+    var tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+    d3.queue()
+        .defer(d3.json, "us-10m.json")
+        .defer(d3.csv, "data.csv", function(d) { 
+            var density = +d['density'];
+            rateById.set(d['county_id'], [density, d['GCT_STUB.display-label']]);
+        })
+        .await(ready);
+
+    var x = d3.scaleSqrt()
+        .domain([0, 4500])
+        .rangeRound([440, 950]);
+    
+    drawLegend(color);
+    
+    function drawLegend(c) {
+        var g = svg.append("g")
+            .attr("class", "key")
+            .attr("transform", "translate(0,40)");
+        g.selectAll("rect")
+          .data(c.range().map(function(d) {
+              d = c.invertExtent(d);
+              if (d[0] == null) d[0] = x.domain()[0];
+              if (d[1] == null) d[1] = x.domain()[1];
+              return d;
+            }))
+          .enter().append("rect")
+            .attr("height", 8)
+            .attr("x", function(d) { return x(d[0]); })
+            .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+            .attr("fill", function(d) { return c(d[0]); });
+
+        g.append("text")
+            .attr("class", "caption")
+            .attr("x", x.range()[0])
+            .attr("y", -6)
+            .attr("fill", "#000")
+            .attr("text-anchor", "start")
+            .attr("font-weight", "bold")
+            .text("Population per square mile");
+
+        g.call(d3.axisBottom(x)
+            .tickSize(13)
+            .tickValues(c.domain()))
+          .select(".domain")
+            .remove();
+    }
+    function ready(error, us) {
+      if (error) throw error;
+      var y = [];
+      topojson.feature(us, us.objects.counties).features.forEach((e) => {
+        if(rateById.get(e.id) != null) {
+            console.log(e);
+            y.push(e);
+        }
+      });
+      svg.append("g")
+          .attr("class", function() {
+            if (+document.getElementById("cu").getAttribute("c")>0) {
+                return "counties"
+            } else {
+                return "counties-no-boundary"
+            }
+          })
+        .selectAll("path")
+          .data(JSON.parse(JSON.stringify(y)))
+        .enter().append("path")
+          .attr("fill", function(d) { 
+            if (+document.getElementById('bu').getAttribute("c")>0) {
+                return color(rateById.get(d.id)[0]);
+            } else {
+                return color2(rateById.get(d.id)[0]);
+            }
+          })
+          .attr("d", path)
+          .on("mouseover", function(d) { // add tooltips
+                tooltip.transition()
+                    .style("opacity", 1);
+                tooltip.html(`
+                    ${rateById.get(d.id)[1]}<br>
+                    Pop. Density: ${rateById.get(d.id)[0]}<br>
+                `)
+                    .style("left", (d3.event.pageX+10) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px")
+                    .style("opacity", 1)
+                    .append("text")
+                        .attr("class","text")
+                        .style("text-anchor", "start")
+                        .style("fill", "black")
+                })
+          .on("mouseout", function(d) {
+                tooltip.transition(500)
+                    .style("opacity", 0);
+          });
+    }
+    function changeColor() {
+        document.getElementById("bu").setAttribute("c", +document.getElementById("bu").getAttribute("c") * -1);
+        d3.queue()
+            .defer(d3.json, "us-10m.json")
+            .defer(d3.csv, "data.csv", function(d) { 
+                var density = d['GEO.display-label'] == "South Carolina" ? +d['density'] : 1230;
+                rateById.set(d['county_id'], [density, d['GCT_STUB.display-label']]); 
+            })
+            .await(ready);
+        var selected = +document.getElementById("bu").getAttribute("c")>0 ? color : color2;
+        drawLegend(selected);
+    }
+    function toggleBoundary() {
+        document.getElementById("cu").setAttribute("c", +document.getElementById("cu").getAttribute("c")*-1);
+        d3.queue()
+            .defer(d3.json, "us-10m.json")
+            .defer(d3.csv, "data.csv", function(d) { 
+                var density = d['GEO.display-label'] == "South Carolina" ? +d['density'] : 1230;
+                rateById.set(d['county_id'], [density, d['GCT_STUB.display-label']]); 
+            })
+            .await(ready);
+    }
+    </script>
+    <button id="bu" c="1" onClick="changeColor()">Toggle Color</button>
+    <button id="cu" c="1" onClick="toggleBoundary()">Toggle Boundary</button>
+    <p>Inan Xu<br>Instructor: Suresh Lodha<br>CSE 163: Data Programming for Visualization<br>Fall 2022</p>
+</body>
+</html>
