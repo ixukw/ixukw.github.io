@@ -1,8 +1,18 @@
-# Getting Started with Create React App
+# ixukw.github.io
+
+This is the source code for my website.
+
+# Other
+
+Content dated before 2023 is located in old_site. 
+
+# Running Locally
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
