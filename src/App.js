@@ -56,7 +56,7 @@ function App() {
 
         <h2>Projects</h2>
 
-        <p><em>A full list is available <a href="">here</a></em>.</p>
+        <p><em>A full list is available <a href="https://ixukw.github.io/projects">here</a></em>.</p>
       </section>
       <footer>
         
