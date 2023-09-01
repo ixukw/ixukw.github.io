@@ -6,7 +6,7 @@ function App() {
     <div className="App wrapper">
       <header>
         <h1>Inan Xu &mdash; <span>许忆南</span></h1>
-        <img alt="Inan Xu Profile Image" src="./profile_img.jpg"/>
+        <img alt="Inan Xu Profile" src="./profile_img.jpg"/>
         <p><a href="mailto:inxu@ucsc.edu">inxu@ucsc.edu</a></p>
         <p><a href="./resume.pdf">Resume</a></p>
         <p className="socialLinks">
