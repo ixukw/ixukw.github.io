@@ -1,17 +1,17 @@
-import logo from './logo.svg';
 import './styles/App.css';
 import './styles/pygment_trac.css'
+
 function App() {
   return (
     <div className="App wrapper">
       <header>
         <h1>Inan Xu &mdash; <span>许忆南</span></h1>
-        <img src="./profile_img.jpg"/>
+        <img alt="Inan Xu Profile Image" src="./profile_img.jpg"/>
         <p><a href="mailto:inxu@ucsc.edu">inxu@ucsc.edu</a></p>
         <p><a href="./resume.pdf">Resume</a></p>
         <p className="socialLinks">
-          <a href="https://github.com/ixukw"><img height="24" width="24" src="https://cdn.simpleicons.org/github/black"/></a>
-          <a href="https://linkedin.com/in/inanxu/"><img height="24" width="24" src="https://cdn.simpleicons.org/linkedin/black"/></a>
+          <a href="https://github.com/ixukw"><img alt="GitHub" height="24" width="24" src="https://cdn.simpleicons.org/github/black"/></a>
+          <a href="https://linkedin.com/in/inanxu/"><img alt="LinkedIn" height="24" width="24" src="https://cdn.simpleicons.org/linkedin/black"/></a>
         </p>
         
         
