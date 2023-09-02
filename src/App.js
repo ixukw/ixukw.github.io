@@ -6,7 +6,7 @@ function App() {
     <div className="App wrapper">
       <header>
         <h1>Inan Xu &mdash; <span>许忆南</span></h1>
-        <img alt="Inan Xu Profile" src="./profile_img.jpg"/>
+        <img alt="Inan Xu Profile" src="./profile_img.jpg" />
         <p><a href="mailto:inxu@ucsc.edu">inxu@ucsc.edu</a></p>
         <p><a href="./resume.pdf">CV</a><br/>Last Updated: Aug 2023</p>
         <p className="socialLinks">
@@ -55,6 +55,24 @@ function App() {
         </p>
 
         <h2>Projects</h2>
+
+        <p>
+          <strong>YouTube Comment Downloader</strong> &mdash; Downloading mass YouTube comments is time-consuming and reaches API limits.
+          This tool helps you manage Google Data API limits to download 50k+ YouTube comments easily. 
+        </p>
+        <p>
+          <strong>NoSight</strong> &mdash; Developed at CalHacks to upscale low resolution lecture images for the vision impaired. Designed to work in real-time with an everyday camera. Written in TensorFlow and React. 
+        </p>
+
+        <h3>Ongoing</h3>
+
+        <p>
+          <strong>Eye Segmentation</strong> &mdash; Eye segmentation can be costly. This project aims to implement real-time semantic segmentation for eye tracking.
+        </p>
+        <p>
+          <strong>Automatic Video Editing</strong> &mdash; Traditional editing of large chunks of footage require noting timestamps or watching the playback for useful information.
+          Using audio algorithms, ML, and FFmpeg, long video broadcasts can be auto-cut into relevant clips for faster review.
+        </p>
 
         <p><em>A full list is available <a href="https://ixukw.github.io/projects">here</a></em>.</p>
       </section>
