@@ -8,7 +8,7 @@ function App() {
         <h1>Inan Xu &mdash; <span>许忆南</span></h1>
         <img alt="Inan Xu Profile" src="./profile_img.jpg" />
         <p><a href="mailto:inxu@ucsc.edu">inxu@ucsc.edu</a></p>
-        <p><a href="./resume.pdf">CV</a><br/>Last Updated: Aug 2023</p>
+        <p><a href="./resume.pdf">CV</a><br/>Last Updated: Oct 2023</p>
         <p className="socialLinks">
           <a href="https://github.com/ixukw"><img alt="GitHub" height="24" width="24" src="https://cdn.simpleicons.org/github/black"/></a>
           <a href="https://linkedin.com/in/inanxu/"><img alt="LinkedIn" height="24" width="24" src="https://cdn.simpleicons.org/linkedin/black"/></a>
@@ -59,6 +59,7 @@ function App() {
         <p>
           <strong>YouTube Comment Downloader</strong> &mdash; Downloading mass YouTube comments is time-consuming and reaches API limits.
           This tool helps you manage Google Data API limits to download 50k+ YouTube comments easily. 
+          <br/><em><a href="https://ixukw.github.io/ytcomments">ixukw.github.io/ytcomments</a></em>
         </p>
         <p>
           <strong>NoSight</strong> &mdash; Developed at CalHacks to upscale low resolution lecture images for the vision impaired. Designed to work in real-time with an everyday camera. Written in TensorFlow and React. 
@@ -67,7 +68,7 @@ function App() {
         <h3>Ongoing</h3>
 
         <p>
-          <strong>Eye Segmentation</strong> &mdash; Eye segmentation can be costly. This project aims to implement real-time semantic segmentation for eye tracking.
+          <strong>Eye Segmentation</strong> &mdash; Eye segmentation can be costly. This project aims to implement real-time semantic segmentation for eye tracking using ordinary laptop cameras.
         </p>
         <p>
           <strong>Automatic Video Editing</strong> &mdash; Traditional editing of large chunks of footage require noting timestamps or watching the playback for useful information.
