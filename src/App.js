@@ -19,8 +19,8 @@ function App() {
       <section>
 
         <p>
-          Hello! I'm a recent graduate looking for industry positions with plans to pursue graduate school. My primary interests are in ML/AI, CV, and HCI. 
-          I love to create accessible consumer-facing products that addresses problems.
+          Hello! I'm a recent computer science graduate seeking industry positions. My primary interests are in computer vision and applied ML/AI for HCI. 
+          I love to create accessible consumer-facing products that addresses real-world problems.
         </p>
 
         <p>
@@ -38,13 +38,13 @@ function App() {
         </p>
 
         <p>
-          I am also a developer at <a href="https://pathfinder.fyi">PathFinder</a>, an app that showcases relevant skills for careers based on online job postings.
-          Our app is targeted toward young undergraduates looking to build skills for a career.
-          Recently, we have added stories &mdash; Q&A interviews from experts in the field.
+          I am also a developer at <a href="https://pathfinder.fyi">PathFinder</a>, an app for finding relevant career skills based on job postings and interviews from industry experts.
+          Our app is targeted toward young undergraduates looking to specialize within their careers.
+          Recently, we've been integrating LLMs into our application for simple, intuitive search.
         </p>
         
         <p>
-          I currently live in the Bay Area. I love cooking new foods and hiking to photograph views.
+          I currently am in the Bay Area. I love hiking and asian cooking.
         </p>
 
         <h2>Publications</h2>
