@@ -31,10 +31,11 @@ function App() {
         </p>
 
         <p>
-          In 2022, I was a research intern with Prof. Yang Wang at the <a href="https://inclusiveprivacy.org/">Inclusive&nbsp;Privacy&nbsp;Lab</a> at UIUC.
-          I worked with a team of researchers to design and create a disability-first dataset showing private visual information for the training of AI models.
-          The dataset consists of images collected by those who are blind, and is one of the first of its kind.
-          Our <a href="https://dl.acm.org/doi/abs/10.1145/3544548.3580922">paper</a> was accepted into CHI 2023.
+          In 2022 and 2023, I was a research intern with Prof. Yang Wang at the <a href="https://inclusiveprivacy.org/">Inclusive&nbsp;Privacy&nbsp;Lab</a> at the University of Illinois, Urbana-Champaign.
+          I worked with other researchers to design and create a disability-first dataset showing private visual information for the training of AI models.
+          The dataset consists 728 images/videos and is the first of its kind to contain images directly captured by the blind.
+          We followed up with an app demo using prompt-based obfuscation for uploaded images, built with <a href="https://nextjs.org/">Next.js</a> and <a href="https://github.com/ttengwang/Caption-Anything">Caption Anything</a>.
+          Our <a href="https://dl.acm.org/doi/abs/10.1145/3544548.3580922">paper</a> on our dataset findings was accepted into CHI 2023, with another pending review into CHI 2024.
         </p>
 
         <p>
