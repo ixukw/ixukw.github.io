@@ -8,7 +8,7 @@ function App() {
         <h1>Inan Xu &mdash; <span>许忆南</span></h1>
         <img alt="Inan Xu Profile" src="./profile_img.jpg" />
         <p><a href="mailto:inxu@ucsc.edu">inxu@ucsc.edu</a></p>
-        <p><a href="./resume.pdf">CV</a><br/>Last Updated: Oct 2023</p>
+        <p><a href="./resume.pdf">CV</a><br/>Updated: Jan 2024</p>
         <p className="socialLinks">
           <a href="https://github.com/ixukw"><img alt="GitHub" height="24" width="24" src="https://cdn.simpleicons.org/github/black"/></a>
           <a href="https://linkedin.com/in/inanxu/"><img alt="LinkedIn" height="24" width="24" src="https://cdn.simpleicons.org/linkedin/black"/></a>
